@@ -25,7 +25,7 @@ import {
 } from "lucide-react";
 import "./App.css";
 
-const API = "http://localhost:8080/api";
+const API = `${import.meta.env.VITE_API_URL || "http://localhost:8080"}/api`;
 const ACCOUNT_KEY = "parksmart-account";
 
 function errorMessage(err, fallback) {
@@ -1043,7 +1043,7 @@ async function openPaymentQr(booking) {
                     <h3>Scan this QR code to pay the host</h3>
                     <img
                       className="payment-qr-image"
-                      src={`http://localhost:8080${latestReservation.qrImagePath}`}
+                      src={`${import.meta.env.VITE_API_URL || "http://localhost:8080"}${latestReservation.qrImagePath}`}
                       alt="Host payment QR code"
                     />
                     <p className="small-note">
@@ -1416,7 +1416,7 @@ async function openPaymentQr(booking) {
                   <h3>Your current payment QR</h3>
                   <img
                     className="payment-qr-image"
-                    src={`http://localhost:8080${qrImagePath}`}
+                    src={`${import.meta.env.VITE_API_URL || "http://localhost:8080"}${qrImagePath}`}
                     alt="Your payment QR code"
                   />
                   <p className="small-note">
